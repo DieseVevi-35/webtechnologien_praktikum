@@ -1,0 +1,25 @@
+/* Kommentare:
+ * critical-link als id kann in den html tags benutzt werden um hier dann rot markiert zu werden
+ * 
+ */
+
+
+a {
+    color: blue;
+}
+
+a:hover {
+    color:blueviolet;
+}
+
+
+#critical-link{
+    color: red;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
