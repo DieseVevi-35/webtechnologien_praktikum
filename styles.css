@@ -5,8 +5,10 @@
 
 
 a {
-    color: blue;
+    color: rgb(149, 192, 245);
     text-decoration: none;
+    font-family: 'courier new';
+
 }
 
 a:hover {
@@ -111,7 +113,7 @@ gesteuert damit die Ansicht der Login register und logout page zentriert bleiben
 
 .content-container a {
     text-decoration: none;
-    color: blue;
+    /*color: blue;*/
 }
 
 .content-container a#critical-link {
@@ -134,4 +136,22 @@ gesteuert damit die Ansicht der Login register und logout page zentriert bleiben
     width: 60%;
     margin-right: 10px;
     box-sizing: border-box;
+}
+
+/* Teilaufgabe b - Textformatierung - Verena */
+
+h1 {
+    font-size: 30px;
+    font-style: italic;
+    color: lightskyblue;
+}
+/* Links sind oben bearbeitet worden */
+
+li > a {	
+    font-size: 15px;
+    color: rgb(227, 95, 0);
+}
+
+input {
+    font-size: 0.8em;
 }
