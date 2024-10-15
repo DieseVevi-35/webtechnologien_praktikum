@@ -129,9 +129,59 @@ gesteuert damit die Ansicht der Login register und logout page zentriert bleiben
     cursor: pointer;
 }
 
+/* for chat messages with timestamp */
+
+.chat-message {
+    display:block;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+.message-text{
+    float:left;
+}
+.timestamp{
+    float: right;
+    color:gray;
+    font-size: 0.7em;
+    
+}
+/*specifics for the add button to the right*/
 #add-friend {
     padding: 10px;
     width: 60%;
     margin-right: 10px;
     box-sizing: border-box;
+}
+
+/* for the radiobuttons */
+
+.radiobutton-container input{
+    width: 15px;
+}
+
+/* for the profile info layout */
+
+/* Container holding the profile image and info */
+.profile {
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+    gap: 20px; /* Space Between imag and text */
+    margin-bottom: 20px;
+}
+
+/* Styling for the image */
+.profile-image img {
+    max-width: 200px;
+    height: auto; /* Ensures the image maintains aspcet ratio */
+    border-radius: 5px; 
+}
+
+/* Styling for the profile info box */
+.profile-info {
+    background-color: #f5f5f5; /* hintergrundabhebung */
+    padding: 20px; /* rahmenabstand */
+    border-radius: 5px; /* abrundung */
+    max-width: 500px; 
 }
