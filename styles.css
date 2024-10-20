@@ -11,10 +11,10 @@ a {
 }
 
 a:hover {
-    color:blueviolet;
+    color: blueviolet;
 }
 
-#critical-link{
+#critical-link {
     color: rgb(184, 11, 11);
 }
 
@@ -22,7 +22,7 @@ li {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-li > a {	
+li>a {
     font-size: 15px;
     color: rgb(227, 95, 0);
 }
@@ -85,7 +85,7 @@ h3 {
 
 .button-container {
     display: flex;
-    gap: 10px; 
+    align-items: center;
 }
 
 
@@ -108,7 +108,7 @@ gesteuert damit die Ansicht der Login register und logout page zentriert bleiben
     padding: 20px;
     background-color: #ffffff;
     border: 1px solid #ccc;
-    width: 70%;  
+    width: 70%;
     max-width: 800px;
 }
 
@@ -149,21 +149,24 @@ gesteuert damit die Ansicht der Login register und logout page zentriert bleiben
 /* for chat messages with timestamp */
 
 .chat-message {
-    display:block;
+    display: block;
     width: 100%;
     margin-top: 15px;
     margin-bottom: 10px;
     line-height: 1.5;
 }
-.message-text{
-    float:left;
+
+.message-text {
+    float: left;
 }
-.timestamp{
+
+.timestamp {
     float: right;
-    color:gray;
+    color: gray;
     font-size: 0.7em;
-    
+
 }
+
 /*specifics for the add button to the right*/
 #add-friend {
     padding: 10px;
@@ -174,7 +177,7 @@ gesteuert damit die Ansicht der Login register und logout page zentriert bleiben
 
 /* for the radiobuttons */
 
-.radiobutton-container input{
+.radiobutton-container input {
     width: 15px;
 }
 
@@ -183,22 +186,48 @@ gesteuert damit die Ansicht der Login register und logout page zentriert bleiben
 /* Container holding the profile image and info */
 .profile {
     display: flex;
-    align-items: flex-start; /* Align items at the top */
-    gap: 20px; /* Space Between imag and text */
+    align-items: flex-start;
+    /* Align items at the top */
+    gap: 20px;
+    /* Space Between imag and text */
     margin-bottom: 20px;
 }
 
 /* Styling for the image */
 .profile-image img {
     max-width: 200px;
-    height: auto; /* Ensures the image maintains aspcet ratio */
-    border-radius: 5px; 
+    height: auto;
+    /* Ensures the image maintains aspcet ratio */
+    border-radius: 5px;
 }
 
 /* Styling for the profile info box */
 .profile-info {
-    background-color: #f5f5f5; /* hintergrundabhebung */
-    padding: 20px; /* rahmenabstand */
-    border-radius: 5px; /* abrundung */
-    max-width: 500px; 
+    background-color: #f5f5f5;
+    /* hintergrundabhebung */
+    padding: 20px;
+    /* rahmenabstand */
+    border-radius: 5px;
+    /* abrundung */
+    max-width: 500px;
+}
+
+@media (max-width: 900px) {
+    fieldset {
+        width: 90%;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
+
+    .content-container {
+        width: 90%;
+        max-width: unset;
+    }
+
+    .profile {
+        flex-direction: column;
+        align-items: center;
+    }
 }
