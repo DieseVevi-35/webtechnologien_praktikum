@@ -231,3 +231,17 @@ gesteuert damit die Ansicht der Login register und logout page zentriert bleiben
         align-items: center;
     }
 }
+/* Textbox Profile Settings */
+textarea {
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Coffee or Tea Selection Box */
+select {
+    margin: 5px 0;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
