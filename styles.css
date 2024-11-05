@@ -290,4 +290,5 @@ select {
     padding: 8px;
     width: 100%;
     box-sizing: border-box;
+    background-color: rgb(240, 175, 255);
 }
