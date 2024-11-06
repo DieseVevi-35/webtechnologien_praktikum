@@ -292,3 +292,21 @@ select {
     box-sizing: border-box;
     background-color: rgb(240, 175, 255);
 }
+
+/* this is for the notification numbers*/
+.notification{
+    float: right;
+    background-color: blue;
+    color: white;
+    border-radius: 30%;
+    padding: 3px 3px;
+    border: 0px;
+    margin:0px;
+    text-align: center;
+}
+
+.proflie-container{
+    display:flex;
+    flex-direction: row;
+    justify-items: start;
+}
