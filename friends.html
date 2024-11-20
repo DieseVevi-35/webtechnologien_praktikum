@@ -34,8 +34,12 @@
 
         <hr>
 
-        <input type='text' id='add-friend' placeholder='Add Friend to List' name='add-friend'>
-        <button>Add</button>
+        <input type='text' id='add-friend' placeholder='Add Friend to List' name='add-friend' list="friend-selector">
+        <datalist id="friend-selector">
+            <option>Tom</option>
+            <option>Jerry</option>
+        </datalist>
+        <button type="button">Add</button>
     </div>
 </body>
 </html>
