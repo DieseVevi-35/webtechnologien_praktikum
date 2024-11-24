@@ -1,0 +1,8 @@
+services:
+  server:
+    image: ghcr.io/thi-cs-slides/simple-nginx-with-php:main
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+      - ./logs:/var/log/nginx
