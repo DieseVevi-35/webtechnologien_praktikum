@@ -106,6 +106,7 @@ h1 {
     background-image: repeating-linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red, violet);
     text-align: center;
     background-size: 800% 800%;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: rainbow 4s ease-in-out infinite;
@@ -291,4 +292,23 @@ select {
     padding: 8px;
     width: 100%;
     box-sizing: border-box;
+    background-color: rgb(240, 175, 255);
+}
+
+/* this is for the notification numbers*/
+.notification{
+    float: right;
+    background-color: blue;
+    color: white;
+    border-radius: 30%;
+    padding: 0px 3px 0px 3px;
+    border: 0px;
+    margin:0px;
+    text-align: center;
+}
+
+.proflie-container{
+    display:flex;
+    flex-direction: row;
+    justify-items: start;
 }

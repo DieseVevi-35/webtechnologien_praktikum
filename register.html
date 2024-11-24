@@ -13,28 +13,31 @@
     <img class="header-image" src="images/unicorn.jpg" alt='Chat-Symbol'>
 
     <h1>Register yourself</h1>
+
     <fieldset>
         <legend>Register</legend>
-        <label for='username'>Username</label>
-        <input type='text' id='username' placeholder='Username' name='username'> <br>
-        <label for='password'>Password</label>
-        <input type='password' id='password' placeholder='Password' name='username'> <br>
-        <label for='confirm-password'>Confirm Password</label>
-        <input type='password' id='confirm-password' placeholder='Confirm Password' name='confirm-password'>
-    </fieldset>
-    <br>
+        <form id="registerForm" action="friends.html" method="get" onsubmit="return validateForm(event);">
 
-    <!--damit die buttons später noch nebeneinander sind-->
-    <div class="button-container">
-        <a href='login.html' id="cancel">
-            <button>Cancel</button>
-        </a>
+            <label for='username'>Username</label>
+            <input type='text' id='username' placeholder='Username' name='username' required> <br>
 
-        <a href='friends.html' id="create">
-            <button>Create Account</button>
-        </a>
-    </div>
+            <label for='password'>Password</label>
+            <input type='password' id='password' placeholder='Password' name='password'> <br>
 
+            <label for='confirm-password'>Confirm Password</label>
+            <input type='password' id='confirm_password' placeholder='Confirm Password' name='confirm_password'> <br>
+
+        </fieldset>
+
+            <div class="button-container">
+                <button type="button" onclick="window.location.href='login.html'">Cancel</button>
+                <button type="submit">Create Account</button>
+            </div>
+
+        </form>
+    
+
+    <script src="register.js"></script>
 </body>
 
 </html>

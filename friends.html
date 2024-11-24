@@ -16,10 +16,10 @@
         <hr>
 
         <ul>
-            <li><a href='chat.html'>Tom (3)</a></li>
-            <li><a href='chat.html'>Marvin (4)</a></li>
-            <li><a href='chat.html'>Tick (2)</a></li>
-            <li><a href='chat.html'>Trick (0)</a></li>
+            <li class="profile-container"><a href='chat.html'>Tom </a><span class="notification">3</span></li>
+            <li class="profile-container"><a href='chat.html'>Marvin </a><span class="notification">5</span></li>
+            <li class="profile-container"><a href='chat.html'>Tick </a><span class="notification">2</span></li>
+            <li class="profile-container"><a href='chat.html'>Trick </a><span class="notification">0</span></li>
         </ul>
 
         <hr>
@@ -34,8 +34,12 @@
 
         <hr>
 
-        <input type='text' id='add-friend' placeholder='Add Friend to List' name='add-friend'>
-        <button>Add</button>
+        <input type='text' id='add-friend' placeholder='Add Friend to List' name='add-friend' list="friend-selector">
+        <datalist id="friend-selector">
+            <option>Tom</option>
+            <option>Jerry</option>
+        </datalist>
+        <button type="button">Add</button>
     </div>
 </body>
 </html>
