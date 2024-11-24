@@ -193,7 +193,7 @@ gesteuert damit die Ansicht der Login register und logout page zentriert bleiben
 
 /* for chat messages with timestamp */
 
-.chat-message {
+#chat-messages {
     display: block;
     width: 100%;
     margin-top: 15px;
@@ -201,12 +201,12 @@ gesteuert damit die Ansicht der Login register und logout page zentriert bleiben
     line-height: 1.5;
 }
 
-.message-text {
-    float: left;
+.chat-message {
+    display: flex;
+    justify-content: space-between;
 }
 
 .timestamp {
-    float: right;
     color: gray;
     font-size: 0.7em;
 
@@ -277,6 +277,7 @@ gesteuert damit die Ansicht der Login register und logout page zentriert bleiben
         align-items: center;
     }
 }
+
 /* Textbox Profile Settings */
 textarea {
     padding: 8px;

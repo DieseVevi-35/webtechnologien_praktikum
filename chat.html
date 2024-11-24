@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Alle namen immer in der Konvention kleingeschrieben-kleingeschrieben -->
     <meta charset="UTF-8">
@@ -7,27 +8,27 @@
     <title>Chat</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="centered-container">
     <div class="content-container">
         <h1>Chat with USERNAME</h1>
         <a href='friends.html'>&lt Back</a>
         |
-        <a href='profile.html'>Profile</a> 
+        <a href='profile.html'>Profile</a>
         |
         <a href='friends.html' id="critical-link">Remove Friend</a>
         <br>
         Chatverlauf
 
-        <div class="chat-message">
-            <span class="message-text"> Tom: Hello there!</span>
-            <span class="timestamp"> 14:28</span> 
-            <br>
-            <span class="message-text"> You: Waazzzuuuppppp</span>
-            <span class="timestamp"> 14:32</span>
+        <div id="chat-messages">
+
         </div>
         <br>
-        <input type='text' id='Message' placeholder='New Message' name='MessagSending'>
-        <button>Send</button>
+        <input type='text' id='message-field' placeholder='New Message' name='MessagSending'>
+        <button onclick="sendMessage()">Send</button>
     </div>
 </body>
+
+<script src="chat.js"></script>
+
 </html>
