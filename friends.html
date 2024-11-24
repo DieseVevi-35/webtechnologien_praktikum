@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Alle namen immer in der Konvention kleingeschrieben-kleingeschrieben -->
     <meta charset="UTF-8">
@@ -7,29 +8,24 @@
     <title>friends</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="centered-container">
     <div class="content-container">
         <h1>Friends</h1>
-        <a href='logout.html' id="critical-link">&lt Log out</a> | 
+        <a href='logout.html' id="critical-link">&lt Log out</a> |
         <a href='settings.html'>Settings</a>
 
         <hr>
 
-        <ul>
-            <li class="profile-container"><a href='chat.html'>Tom </a><span class="notification">3</span></li>
-            <li class="profile-container"><a href='chat.html'>Marvin </a><span class="notification">5</span></li>
-            <li class="profile-container"><a href='chat.html'>Tick </a><span class="notification">2</span></li>
-            <li class="profile-container"><a href='chat.html'>Trick </a><span class="notification">0</span></li>
+        <ul id="friend-list">
+
         </ul>
 
         <hr>
 
         <h3>New Requests</h3>
-        <ol>
-            <li>Friend request from <strong>Track</strong>
-                <button>Accept</button>
-                <button>Reject</button>
-            </li>
+        <ol id="request-list">
+
         </ol>
 
         <hr>
@@ -37,9 +33,12 @@
         <input type='text' id='add-friend' placeholder='Add Friend to List' name='add-friend' list="friend-selector">
         <datalist id="friend-selector">
             <!-- dynamically filled via JS-->
-             <script src="friends.js"></script>
         </datalist>
         <button type="button">Add</button>
     </div>
 </body>
+
+<script src="constants.js"></script>
+<script src="friends.js"></script>
+
 </html>

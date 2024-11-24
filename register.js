@@ -25,7 +25,7 @@ function checkUsername(callback) {
         }
     };
 
-    const url = `https://online-lectures-cs.thi.de/chat/9aec2666-0255-4bda-8809-59228e4e9bf2/user/${username}`;
+    const url = `${serverUrl}/user/${username}`;
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
 }
@@ -60,7 +60,7 @@ function checkPassword() {
 
 function validateForm(event) {
     event.preventDefault();
-    checkUsername(function() {
+    checkUsername(function () {
         if (checkPassword()) {
             document.getElementById("registerForm").submit();
         }

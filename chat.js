@@ -1,8 +1,3 @@
-const collectionId = "1960b373-3673-45f0-8509-c3d7d901a332";
-const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNzMwODEzNTM2fQ.jHyyW_X1Lp8ATCdc-nj1oxydd7vd1Rl8gUKWI0qFLXY";
-const serverUrl = `https://online-lectures-cs.thi.de/chat/${collectionId}`;
-
-
 loadChat();
 
 window.setInterval(function () {
@@ -15,7 +10,7 @@ async function loadChat() {
     const friendName = getFriendName();
     const messagesJson = await get(`/message/${friendName}`);
     const chatHtml = generateChatHtml(messagesJson);
-    setChatContent(chatHtml);
+    setChatContent(chatHtml, friendName);
 }
 
 function sendMessage() {
@@ -30,8 +25,12 @@ function sendMessage() {
 
 }
 
-function setChatContent(chatHtml) {
-    chatContainer = document.getElementById("chat-messages");
+function setChatContent(chatHtml, friendName) {
+    usernameContainer = document.getElementById("username");
+    username =
+        chatContainer = document.getElementById("chat-messages");
+
+    usernameContainer.innerHTML = friendName;
     chatContainer.innerHTML = chatHtml;
 }
 
