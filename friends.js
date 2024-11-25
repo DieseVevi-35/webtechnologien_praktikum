@@ -11,10 +11,12 @@ function loadUsers() {
             let data = JSON.parse(xmlhttp.responseText);
             const datalist = document.getElementById('friend-selector');
             data.forEach(user => {
+                if (user!="Tom"){
+                    
                 const option = document.createElement('option');
                 option.value = user;
                 datalist.appendChild(option);
-            });
+            }});
         } else if (xmlhttp.readyState == 4) {
             console.error('Request failed with status:', xmlhttp.status);
         }
