@@ -7,3 +7,6 @@
 2024/12/10 14:09:20 [error] 9#9: *2 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 172.19.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/"
 2024/12/10 14:09:30 [error] 9#9: *2 open() "/var/www/html/login.html" failed (2: No such file or directory), client: 172.19.0.1, server: localhost, request: "GET /login.html HTTP/1.1", host: "localhost:8080"
 2024/12/10 14:11:17 [error] 9#9: *3 open() "/var/www/html/profile.html" failed (2: No such file or directory), client: 172.19.0.1, server: localhost, request: "GET /profile.html HTTP/1.1", host: "localhost:8080"
+2024/12/12 11:54:00 [error] 9#9: *2 open() "/var/www/html/Request.html" failed (2: No such file or directory), client: 172.22.0.1, server: localhost, request: "GET /Request.html HTTP/1.1", host: "localhost:8080"
+2024/12/12 11:54:00 [error] 9#9: *2 open() "/var/www/html/favicon.ico" failed (2: No such file or directory), client: 172.22.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/Request.html"
+2024/12/12 11:54:08 [error] 9#9: *2 directory index of "/var/www/html/" is forbidden, client: 172.22.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8080"
