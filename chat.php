@@ -12,11 +12,11 @@
 <body class="centered-container">
     <div class="content-container">
         <h1>Chat with <span id="username"></span></h1>
-        <a href='friends.html'>&lt Back</a>
+        <a href='friends.php'>&lt Back</a>
         |
-        <a href='profile.html'>Profile</a>
+        <a href='profile.php'>Profile</a>
         |
-        <a href='friends.html' id="critical-link">Remove Friend</a>
+        <a href='friends.php' id="critical-link">Remove Friend</a>
         <br>
         Chatverlauf
 

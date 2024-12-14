@@ -10,7 +10,7 @@
 <body class="centered-container">
     <div class="content-container">
         <h1> Profile of <span id=friendName>Friend</span></h1>
-        <a href="chat.html"> &lt Back to Chat</a> 
+        <a href="chat.php"> &lt Back to Chat</a> 
         |
         <a href="friends.html">Remove Friend</a> <br><br><!-- Hier muss später der Remove link sein-->
 

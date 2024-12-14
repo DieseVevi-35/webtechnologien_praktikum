@@ -12,8 +12,8 @@
 <body class="centered-container">
     <div class="content-container">
         <h1>Friends</h1>
-        <a href='logout.html' id="critical-link">&lt Log out</a> |
-        <a href='settings.html'>Settings</a>
+        <a href='logout.php' id="critical-link">&lt Log out</a> |
+        <a href='settings.php'>Settings</a>
 
         <hr>
 

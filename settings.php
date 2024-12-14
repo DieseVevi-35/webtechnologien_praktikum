@@ -49,11 +49,11 @@
             <br />
         </fieldset>
 
-        <a href="friends.html">
+        <a href="friends.php">
             <button>Cancel</button>
         </a>
 
-        <a href="friends.html">
+        <a href="friends.php">
             <button>Save</button>
         </a>
     </div>
