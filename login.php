@@ -31,11 +31,11 @@
         <!--damit die buttons später noch nebeneinander sind-->
         <div class="button-container">
             <form>
-            <a href='register.html' id="register">
+            <a href='register.php' id="register">
                 <button>Register</button>
             </a>
 
-            <a href='friends.html' id="login">
+            <a href='friends.php' id="login">
                 <button type="submit" name="Login" value="login">Login</button>
             </a>
         </div>

@@ -1,30 +1,54 @@
+<?php
+require_once 'start.php';
+
+use Model\Friend;
+
+//Prüfung ob eingeloggt
+/*if (!($BackendService->isAuthentificated)) {
+    header('Location: login.php');
+    exit;
+}
+*/
+
+//wenn kein Nutzer angegeben auf freundesliste weiterleiten
+/*
+if (!$friend) {
+    header('Location: friends.php');
+    exit;
+}
+*/
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Alle namen immer in der Konvention kleingeschrieben-kleingeschrieben -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>profile</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="centered-container">
     <div class="content-container">
-        <h1> Profile of <span id=friendName>Friend</span></h1>
+        <h1> Profile of <?php echo isset($friend) ? $friend->getFirstName() : ""; ?></h1>
         <a href="chat.php"> &lt Back to Chat</a> 
         |
-        <a href="friends.html">Remove Friend</a> <br><br><!-- Hier muss später der Remove link sein-->
+        <a href="friends.php">Remove Friend</a> <br><br> <!-- abklären Query Parameter. Link Ziel Friendsliste (Funktionalität entsprechend umsetzten!) -->
 
         <div class="profile">
             <div class="profile-image">
                 <img src="images/profile.png" alt='profile-symbol' width='200' height='200'>
             </div>
             <div class="profile-info">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis nam fugit omnis, amet eum similique molestiae doloribus quos beatae nesciunt aut architecto sunt et officia voluptates mollitia. Aut, explicabo adipisci?</p>
+                <p> <?php echo isset($friend) ? $friend->getAbout() : "This should actually contain data from your friends"; ?>
+                </p>
                 <dl>
                     <dt>Coffee or Tea?</dt>
                     <dd>Tea</dd>
                     <dt>Name</dt>
-                    <dd>Friends Name</dd>
+                    <dd> <?php echo isset($friend) ? $user->getFirstName() . ' ' . $friend->getLastName() : ""; ?></dd>
                 </dl>
             </div>
         </div>
