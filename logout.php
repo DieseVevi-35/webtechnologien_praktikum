@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log Out</title>
     <link rel="stylesheet" href="styles.css">
-    <?php include 'start.php' 
-    session_unset(); //Gott take a look at the workings when all files are complete 
+    <?php include 'start.php';
+    session_unset(); 
     session_destroy();
     ?>
 </head> 

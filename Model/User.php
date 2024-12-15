@@ -11,7 +11,6 @@ use JsonSerializable;
 class User implements JsonSerializable
 {
     private $username;
-    private $foo;
 
     public function __construct($username = "")
     {
@@ -23,15 +22,6 @@ class User implements JsonSerializable
         return $this->username;
     }
 
-    public function getFoo()
-    {
-        return $this->foo;
-    }
-
-    public function setFoo($value)
-    {
-        $this->foo = $value;
-    }
 
     public function jsonSerialize(): mixed
     {
