@@ -22,8 +22,6 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        //create a new BackendService Object
-        $backendService = new \Utils\BackendService('https://online-lectures-cs.thi.de/chat','1960b373-3673-45f0-8509-c3d7d901a332');
 
         //call login method
         $loginSuccess = $backendService->login($username,$password);
