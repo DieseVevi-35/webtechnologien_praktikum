@@ -1,19 +1,11 @@
 <?php
 require_once 'start.php';
 
-use Model\User;
+if (!isset($_SESSION['user'])){
+    header("Location: login.php");
+} 
 
-/*
-if (!($BackendService->isAuthentificated)) {
-    header('Location: login.php');
-    exit;
-} */
-    
-
-$userData = $_SESSION['user'];
-$user = User::fromJson(json_decode($userData, true));
-$backendService = new Utils\BackendService(CHAT_SERVER_URL, CHAT_SERVER_ID);
-
+$user = $_SESSION['user'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user->setFirstName($_POST['first-name']);
@@ -22,12 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user->setDrink($_POST['coffee-or-tea']);
     $user->setLayout($_POST['layout']);
     
-
-    $user->addProfileChange('Profile updated');
-
     $service->saveUser($user);
 
-    $_SESSION['user'] = json_encode($user);
+    $_SESSION['user'] = $user;
     $successMessage = "Profile updated successfully.";
 }
 ?>

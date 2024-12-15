@@ -8,7 +8,7 @@ window.setInterval(function () {
 
 async function loadChat() {
     const friendName = getFriendName();
-    const messagesJson = await get(`/message/${friendName}`);
+    const messagesJson = await get(`/ajax_load_messages.php?to=${friendName}`);
     const chatHtml = generateChatHtml(messagesJson);
     setChatContent(chatHtml, friendName);
 }
@@ -20,7 +20,7 @@ function sendMessage() {
 
     const requestBody = { "message": message, "to": receiver };
     const requestBodyString = JSON.stringify(requestBody);
-    post("/message", requestBodyString);
+    post("/ajax_send_message.php", requestBodyString);
     messageField.value = "";
 
 }

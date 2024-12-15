@@ -14,11 +14,12 @@ function get(urlPath) {
             if (xmlHttp.status == 200 || xmlHttp.status == 304) {
                 const responseJson = JSON.parse(xmlHttp.responseText);
                 resolve(responseJson);
+            } else {
+                return resolve(false);
             }
         }
 
         xmlHttp.open("GET", serverUrl + urlPath);
-        xmlHttp.setRequestHeader('Authorization', `Bearer ${accessToken}`);
         xmlHttp.send();
     });
 }
@@ -32,11 +33,12 @@ function post(urlPath, requestBodyString) {
             if (xmlHttp.status == 200 || xmlHttp.status == 304) {
                 const responseJson = JSON.parse(xmlHttp.responseText);
                 resolve(responseJson);
+            } else {
+                return resolve(false);
             }
         }
 
         xmlHttp.open("POST", serverUrl + urlPath);
-        xmlHttp.setRequestHeader('Authorization', `Bearer ${accessToken}`);
         xmlHttp.setRequestHeader('Content-type', 'application/json');
         xmlHttp.send(requestBodyString);
     });

@@ -1,23 +1,13 @@
 <?php
 require_once 'start.php';
 
-use Model\Friend;
-
-//Prüfung ob eingeloggt
-/*if (!($BackendService->isAuthentificated)) {
-    header('Location: login.php');
-    exit;
+if (!isset($_SESSION['user'])){
+    header("Location: login.php");
+} elseif (!isset($_GET['user'])) {
+    header("Location: friends.php");
 }
-*/
 
-//wenn kein Nutzer angegeben auf freundesliste weiterleiten
-/*
-if (!$friend) {
-    header('Location: friends.php');
-    exit;
-}
-*/
-
+$user = $service->loadUser($_GET['user']);
 ?>
 
 
@@ -32,23 +22,26 @@ if (!$friend) {
 
 <body class="centered-container">
     <div class="content-container">
-        <h1> Profile of <?php echo isset($friend) ? $friend->getFirstName() : ""; ?></h1>
+        <h1> Profile of <?php echo isset($user) ? $user->getUsername() : ""; ?></h1>
         <a href="chat.php"> &lt Back to Chat</a> 
         |
-        <a href="friends.php">Remove Friend</a> <br><br> <!-- abklären Query Parameter. Link Ziel Friendsliste (Funktionalität entsprechend umsetzten!) -->
+        <form method="post" action="friends.php">
+            <input type="hidden" name="to_be_removed_friend" value="<?php echo $user->getUsername() ?>">
+            <button id="critical-link">Remove Friend</button>
+        </form>
 
         <div class="profile">
             <div class="profile-image">
                 <img src="images/profile.png" alt='profile-symbol' width='200' height='200'>
             </div>
             <div class="profile-info">
-                <p> <?php echo isset($friend) ? $friend->getAbout() : "This should actually contain data from your friends"; ?>
+                <p> <?php echo isset($user) ? $user->getAbout() : "This should actually contain data from your friends"; ?>
                 </p>
                 <dl>
                     <dt>Coffee or Tea?</dt>
-                    <dd>Tea</dd>
+                    <dd> <?php echo isset($user) ? $user->getDrink() : ""; ?></dd>
                     <dt>Name</dt>
-                    <dd> <?php echo isset($friend) ? $user->getFirstName() . ' ' . $friend->getLastName() : ""; ?></dd>
+                    <dd> <?php echo isset($user) ? $user->getFirstName() . ' ' . $user->getLastName() : ""; ?></dd>
                 </dl>
             </div>
         </div>

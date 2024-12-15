@@ -11,6 +11,12 @@ use JsonSerializable;
 class User implements JsonSerializable
 {
     private $username;
+    private $firstName;
+    private $lastName;
+    private $about;
+    private $drink;
+    private $layout;
+
 
     public function __construct($username = "")
     {
@@ -21,6 +27,59 @@ class User implements JsonSerializable
     {
         return $this->username;
     }
+
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+    }
+
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+    }
+        // define getter and setters
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    public function setAbout($about)
+    {
+        $this->about = $about;
+    }
+
+    public function getAbout()
+    {
+        return $this->about;
+    }
+
+    public function setDrink($drink)
+    {
+        $this->drink = $drink;
+    }
+
+    public function getDrink()
+    {
+        return $this->drink;
+    }
+
+    public function setLayout($layout)
+    {
+        $this->layout = $layout;
+    }
+
+    public function getLayout()
+    {
+        return $this->layout;
+    }
+
+
+
 
 
     public function jsonSerialize(): mixed

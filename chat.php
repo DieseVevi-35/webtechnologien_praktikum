@@ -1,4 +1,17 @@
+
+
 <!DOCTYPE html>
+
+<?php
+    require 'start.php';
+    if (!isset($_SESSION['user'])){
+        header("Location: login.php");
+    } elseif (!isset($_GET['friend'])) {
+        header("Location: friends.php");
+    }
+
+
+?>
 <html lang="en">
 
 <head>
@@ -14,9 +27,13 @@
         <h1>Chat with <span id="username"></span></h1>
         <a href='friends.php'>&lt Back</a>
         |
-        <a href='profile.php'>Profile</a>
+        <a href='profile.php?user=<?php echo $_GET['friend'] ?>'>Profile</a>
         |
-        <a href='friends.php' id="critical-link">Remove Friend</a>
+
+        <form method="post" action="friends.php">
+            <input type="hidden" name="to_be_removed_friend" value="<?php echo $_GET['friend']?>">
+            <button id="critical-link">Remove Friend</button>
+        </form>
         <br>
         Chatverlauf
 
