@@ -1,1 +1,1 @@
-const serverUrl = `http://localhost/webtechnologien_praktikum`;
+const serverUrl = `http://localhost`;
