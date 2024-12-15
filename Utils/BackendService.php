@@ -4,6 +4,22 @@ namespace Utils;
 use Model\Friend;
 use Model\User;
 
+/**
+ * Erzeugt einen Pfad getrennt durch '/' aus den übergebenen Argumenten. Zum Beispiel
+ * join_paths('a', 'b') erzeugt "a/b". Entfernt Duplikate.
+ * Source: https://stackoverflow.com/a/15575293
+ * 
+ * @param string ... beliebig viele Parameter die zusammengefügt werden
+ * @return string Zusammengefügter Pfad.
+ */
+function join_paths() {
+    $paths = array();
+    foreach (func_get_args() as $arg) {
+        if ($arg !== '') { $paths[] = $arg; }
+    }
+    return preg_replace('#/+#','/',join('/', $paths));
+}
+
 class BackendService{
     public $link = "";
     private $base = "";
@@ -15,7 +31,7 @@ class BackendService{
      * @param $id Collection ID
      */
     public function __construct($base, $id) {
-        $this->link = $base . $id; 
+        $this->link = join_paths($base, $id);
         $this->base = $base;
         $this->id = $id;
     }
@@ -30,7 +46,7 @@ class BackendService{
      */
     public function login($username, $password){
         try{
-            $result = HttpClient::post($this->link . "/login", array(
+            $result = HttpClient::post(join_paths($this->link, "login"), array(
                 "username" => $username,
                 "password" => $password
             ));
@@ -51,7 +67,7 @@ class BackendService{
      */
     public function register($username, $password){
         try{
-            $result = HttpClient::post($this->link . "/register", array(
+            $result = HttpClient::post(join_paths($this->link, "register"), array(
                 "username" => $username,
                 "password" => $password
             ));
@@ -69,7 +85,7 @@ class BackendService{
      */
     public function loadUser($username){
         try {
-            $user = HttpClient::get($this->link . "/user/" . $username, $_SESSION["chat_token"]);
+            $user = HttpClient::get(join_paths($this->link, "user", $username), $_SESSION["chat_token"]);
             return User::fromJson($user);
         } catch (\Exception $e) {
             error_log($e);
@@ -84,7 +100,7 @@ class BackendService{
      */
     public function saveUser($user){
         try {
-            HttpClient::put($this->link . "/user/" . $user->getUsername(), $user, $_SESSION["chat_token"]);
+            HttpClient::put(join_paths($this->link, "user", $user->getUsername()), $user, $_SESSION["chat_token"]);
             return true;
         } catch (\Exception $e) {
             error_log($e);
@@ -100,7 +116,7 @@ class BackendService{
      */
     public function loadMessages($chatpartner){
         try{
-            $messages = HttpClient::get($this->link . "/message/" . $chatpartner, 
+            $messages = HttpClient::get(join_paths($this->link, "message", $chatpartner), 
                 $_SESSION["chat_token"]);
             return $messages;
         } catch(\Exception $e){
@@ -115,7 +131,7 @@ class BackendService{
      */
     public function loadFriends(){
         try{
-            $friend = HttpClient::get($this->link . "/friend", $_SESSION["chat_token"]);
+            $friend = HttpClient::get(join_paths($this->link, "friend"), $_SESSION["chat_token"]);
             $friends = array();
             foreach($friend as $element){
                 $friends[] = Friend::fromJson($element);
@@ -133,7 +149,7 @@ class BackendService{
      */
     public function loadUsers() {
         try{
-            $users = HttpClient::get($this->link . "/user", $_SESSION["chat_token"]);
+            $users = HttpClient::get(join_paths($this->link, "user"), $_SESSION["chat_token"]);
             return $users;
         }catch (\Exception $e){
             error_log($e);
@@ -147,8 +163,8 @@ class BackendService{
      */
     public function sendMessage($message) {
         try {
-            $reply = HttpClient::post($this->link . "/message",
-                array("message" => $message->msg, "to" => $message->to),
+            HttpClient::post(join_paths($this->link, "message"),
+                array("message" => $message->msg ?? $message->message ?? null, "to" => $message->to),
                 $_SESSION["chat_token"]);
             return true;
         } catch(\Exception $e) {
@@ -164,7 +180,7 @@ class BackendService{
      */
     public function friendRequest($friend){
         try{
-            HttpClient::post($this->link . "/friend", $friend, $_SESSION["chat_token"]);
+            HttpClient::post(join_paths($this->link, "friend"), $friend, $_SESSION["chat_token"]);
             return true;
         } catch (\Exception $e){
             error_log($e);
@@ -180,7 +196,7 @@ class BackendService{
      */
     public function friendAccept($friend){
         try{
-            HttpClient::put($this->link . "/friend/" . $friend, array("status" => "accepted"), $_SESSION["chat_token"]);
+            HttpClient::put(join_paths($this->link, "friend", $friend), array("status" => "accepted"), $_SESSION["chat_token"]);
             return true;
         }catch (\Exception $e){
             error_log($e);
@@ -196,7 +212,7 @@ class BackendService{
      */
     public function friendDismiss($friend){
         try{
-            HttpClient::put($this->link . "/friend/" . $friend, array("status" => "dismissed"), $_SESSION["chat_token"]);
+            HttpClient::put(join_paths($this->link, "friend", $friend), array("status" => "dismissed"), $_SESSION["chat_token"]);
             return true;
         }catch (\Exception $e){
             error_log($e);
@@ -212,7 +228,7 @@ class BackendService{
      */
     public function removeFriend($friend){
         try{
-            HttpClient::delete($this->link . "/friend/" . $friend, $_SESSION["chat_token"]);
+            HttpClient::delete(join_paths($this->link, "friend", $friend), $_SESSION["chat_token"]);
             return true;
         }catch (\Exception $e){
             error_log($e);
@@ -226,7 +242,7 @@ class BackendService{
      */
     public function userExists($username){
         try {
-            HttpClient::get($this->link . "/user/" . $username);
+            HttpClient::get(join_paths($this->link, "user", $username));
             return true;
         } catch (\Exception $e) {
             error_log($e);
@@ -243,16 +259,12 @@ class BackendService{
      */
     public function getUnread(){
         try{
-            $unread = HttpClient::get($this->link . "/unread", $_SESSION["chat_token"]);
+            $unread = HttpClient::get(join_paths($this->link, "unread"), $_SESSION["chat_token"]);
             return $unread;
         }catch (\Exception $e){
             error_log($e);
         }
         return false;
-    }
-
-    public function isAuthentificated() {
-        return isset($_SESSION["chat_token"]) && !empty($_SESSION["chat_token"]);
     }
 }
 ?>

@@ -1,10 +1,6 @@
 <?php 
+    
     require("start.php");
-    $user = new Model\User("Test");
-    $json = json_encode($user);
-    echo $json . "<br>";
-    $jsonObject = json_decode($json);
-    $newUser = Model\User::fromJson($jsonObject);
     
     ?>
 
@@ -17,6 +13,7 @@
     <title>Document</title>
 </head>
 <body>
-    <?php var_dump($newUser); ?>
+    <?php var_dump($service->login("Test123", "12345678"));
+    var_dump($service->loadUser("Test123")); ?>
 </body>
 </html>

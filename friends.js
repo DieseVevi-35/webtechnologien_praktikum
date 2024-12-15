@@ -48,6 +48,6 @@ async function loadFriends() {
     });
 }
 
-window.setInterval(loadFriends, 1000);
-loadFriends();
-loadUsers();
+// window.setInterval(loadFriends, 1000);
+// loadFriends();
+// loadUsers();

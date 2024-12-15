@@ -9,10 +9,13 @@
     <link rel="stylesheet" href="styles.css">
     <?php
     require 'start.php';
-    if (isset($user)){
-        header("Location friends.php");
+
+    use Model\User;
+
+    if (isset($_SESSION['user'])){
+        header("Location: friends.php");
     }
-    include 'utils/BackendService.php';
+    
 
     //Login handling
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -20,22 +23,20 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-
         //call login method
-        $loginSuccess = $backendService->login($username,$password);
+        $loginSuccess = $service->login($username,$password);
 
         //handling of result
         if ($loginSuccess){
             //redirect to freinds by creating header
             header("Location: friends.php");
+            $_SESSION['user'] = User::create($username);
             exit();
         } else {
             //Loginfail
             $errorMessage="Invalid username or password.";
         }
     }
-
-    
     ?>
 </head>
 
@@ -61,14 +62,11 @@
 
         <!--damit die buttons später noch nebeneinander sind-->
         <div class="button-container">
-            <form>
             <a href='register.php' id="register">
-                <button>Register</button>
+                <button type="button">Register</button>
             </a>
 
-            <a href='friends.php' id="login">
-                <button type="submit" name="Login" value="login">Login</button>
-            </a>
+            <button type="submit" name="login" value="login">Login</button>
         </div>
     </form> 
 </body>

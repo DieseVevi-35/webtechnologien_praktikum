@@ -28,6 +28,13 @@ class User implements JsonSerializable
         return get_object_vars($this);
     }
 
+    public static function create($username) {
+        $user = new User();
+        $user->username = $username;
+
+        return $user;
+    }
+
     public static function fromJson($data) {
         $user = new User();
         foreach ($data as $key => $value) {

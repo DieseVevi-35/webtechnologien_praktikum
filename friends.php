@@ -1,3 +1,37 @@
+
+<?php
+    require 'start.php';
+    if (!isset($_SESSION['user'])){
+        header("Location: login.php");
+    }
+
+    $friends = $service->loadFriends();
+    $users = $service->loadUsers();
+    $current_user = $_SESSION['user'];
+
+    $not_friends = [];
+
+    foreach($users as $user) {
+        if ($user != $current_user->getUsername()) {
+            $is_friend = false;
+
+            foreach($friends as $friend) {
+                echo $friend;
+                if($friend->getUsername() == $user->getUsername()) {
+                    $is_friend = true;
+                    break;
+                }
+            }
+        }
+
+        if (!$is_friend) {
+            array_push($not_friends, $user);
+        }
+    }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +52,12 @@
         <hr>
 
         <ul id="friend-list">
-
+            <?php 
+                 foreach($friends as $friend){
+                    echo '<li><a href="chat.html?friend=' . $friend->getUsername() . '">' . $friend->getUsername() . '</a><span class="notification">' . $friend->getUnread() . '</span></li>';
+                }
+            
+            ?>
         </ul>
 
         <hr>
@@ -31,7 +70,11 @@
 
         <input type='text' id='add-friend' placeholder='Add Friend to List' name='add-friend' list="friend-selector">
         <datalist id="friend-selector">
-            <!-- dynamically filled via JS-->
+            <?php
+                foreach($not_friends as $username) {
+                    echo '<option value="' . $username . '"></option>';
+                }
+                ?>
         </datalist>
         <button type="button">Add</button>
     </div>
