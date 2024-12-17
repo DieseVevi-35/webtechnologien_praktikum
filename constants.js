@@ -1,1 +1,1 @@
-const serverUrl = `http://localhost`;
+const serverUrl = `http://localhost:8080`;

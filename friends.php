@@ -7,7 +7,7 @@
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['potential_friend_name'])) {
-            echo $_POST['potential_friend_name'];
+            //echo $_POST['potential_friend_name'];
             $friend_name_array = array(
                 'username' => $_POST['potential_friend_name'],
             );

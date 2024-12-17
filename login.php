@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <!-- Alle namen immer in der Konvention kleingeschrieben-kleingeschrieben -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-    <link rel="stylesheet" href="styles.css">
-    <?php
+<?php
     require 'start.php';
 
     use Model\User;
 
     if (isset($_SESSION['user'])){
-        header("Location: friends.php");
+        header("Location: friends.php"); //header in Datenpaket deshalb lieber ganz vorne hinpacken 
+        exit();
     }
     
 
@@ -38,6 +30,16 @@
         }
     }
     ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Alle namen immer in der Konvention kleingeschrieben-kleingeschrieben -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="styles.css">
+    
 </head>
 
 <body>
