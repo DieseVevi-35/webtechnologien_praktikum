@@ -47,42 +47,54 @@
 </head>
 
 <body class="container-fluid" style="background-color: #FF00FF;">
-<img src="images/unicorn.jpg" class="rounded-circle" alt='Chat-Symbol' style="width: 150px; height: 150px; object-fit: cover; margin:50px;">
+    <div class="text-center">
+    <img src="images/unicorn.jpg" class="rounded-circle" alt='Chat-Symbol' style="width: 150px; height: 150px; object-fit: cover; margin:50px;">
+    </div>
+    <div class="container mt-3">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
 
+                <div class="card" style="background-color:rgb(240, 175, 255);">
+                    <div class="card-header">
+                        <h1 class="text-center">Register Yourself</h1>
+                    </div>
+                <div class="card-body">
+                    <form method="post">
+                        <fieldset>
+                                <div class="mx-5 my-4" >
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Username" onkeyup="validateUsername(this)">
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback">Username must be at least 3 characters long.</div>
+                            </div>
 
-        <h1>Register Yourself</h1>
-        <form method="post">
-            <fieldset>
-                    <div class="mx-5 my-4" >
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" onkeyup="validateUsername(this)">
-                    <div class="valid-feedback">Looks good!</div>
-                    <div class="invalid-feedback">Username must be at least 3 characters long.</div>
-                </div>
+                            <div class="mx-5 my-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" onkeyup="validatePassword(this)">
+                                <div class="valid-feedback">Password looks strong!</div>
+                                <div class="invalid-feedback">Password must be at least 8 characters long.</div>
+                            </div>
 
-                <div class="mx-5 my-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" onkeyup="validatePassword(this)">
-                    <div class="valid-feedback">Password looks strong!</div>
-                    <div class="invalid-feedback">Password must be at least 8 characters long.</div>
-                </div>
+                            <div class="mx-5 my-4">
+                                <label for="confirm_password" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm Password" onkeyup="validateConfirmPassword(this)">
+                                <div class="valid-feedback">Passwords match!</div>
+                                <div class="invalid-feedback">Passwords do not match.</div>
+                            </div>
+                        </fieldset>
 
-                <div class="mx-5 my-4">
-                    <label for="confirm_password" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm Password" onkeyup="validateConfirmPassword(this)">
-                    <div class="valid-feedback">Passwords match!</div>
-                    <div class="invalid-feedback">Passwords do not match.</div>
-                </div>
-            </fieldset>
+                        <?php if (isset($errorMessage)): ?>
+                            <div class="alert alert-danger"><?php echo $errorMessage; ?></div>
+                        <?php endif; ?>
 
-            <?php if (isset($errorMessage)): ?>
-                <div class="alert alert-danger"><?php echo $errorMessage; ?></div>
-            <?php endif; ?>
-
-            <button type="submit" class="btn btn-primary">Create Account</button>
-            <button type="button" class="btn btn-secondary" onclick="window.location.href='login.php'">Cancel</button>
-        </form>
-
+                        <button type="submit" class="btn btn-primary">Create Account</button>
+                        <button type="button" class="btn btn-secondary" onclick="window.location.href='login.php'">Cancel</button>
+                    </form>
+                    
+                </div>                
+            </div>
+        </div>
+    </div>
 
     <script>
         function validateUsername(input) {
