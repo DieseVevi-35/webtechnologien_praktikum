@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet' crossorigin='anonymous'>
     
     <?php
     require 'start.php';
@@ -46,14 +46,10 @@
 
 </head>
 
-<body>
-<img src="images/unicorn.jpg" style="width: 200px; height: auto;">
+<body class="container-fluid" style="background-color: #FF00FF;">
+<img src="images/unicorn.jpg" class="rounded-circle" alt='Chat-Symbol' style="width: 150px; height: 150px; object-fit: cover; margin:50px;">
 
-<style>
-    body {
-        background-color: rgb(255, 106, 198);
-    }
-</style>
+
         <h1>Register Yourself</h1>
         <form method="post">
             <fieldset>
@@ -120,8 +116,8 @@
             }
         }
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

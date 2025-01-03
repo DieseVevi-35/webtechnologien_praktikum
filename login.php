@@ -38,39 +38,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet' crossorigin='anonymous'>
     
 </head>
 
-<body>
-    <img class="header-image" src="images/doge.jpg" alt='Chat-Symbol'>
+<body class="container-fluid" style="background-color: #FF00FF;">
+    <div class="text-center mt-3">
+        <img class="rounded-circle" src="images/doge.jpg" alt='Chat-Symbol' style="width: 150px; height: 150px; object-fit: cover; margin:50px;">
+    </div>
+    <div class="container mt-3">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title text-center">Please sign in</h1>
+                        <form method="post" action="login.php">
+                            
+                                <!-- <legend>Login</legend> -->
+                                <div class="form-floating mb-3">
+                                    <input type='text' id='username' placeholder='Username' name='username'class="form-control">
+                                    <label for='username'>Username</label>
+                                </div>
+                                
+                                <div class="form-floating mb-3">
+                                    <input type='password' id='password' placeholder='Password' name='password' class="form-control">
+                                    <label for='Password'>Password</label>
+                                </div>
+                                
+                            
 
-    <h1>Please sign in</h1>
-    <form method="post" onsubmit="login.php">
-        <fieldset>
-            <legend>Login</legend>
-            <label for='username'>Username</label>
-            <input type='text' id='username' placeholder='Username' name='username'>
-            <br>
-            <label for='Password'>Password</label>
-            <input type='password' id='password' placeholder='Password' name='password'>
-            <br>
-        </fieldset>
+                            <!--hier für das Feedback falls falsch eingegeben -->
+                            <?php if (isset($errorMessage)): ?>
+                                <div class="alert alert-danger" role="alert">
+                                    <?php echo $errorMessage; ?>
+                            </div>
+                            <?php endif; ?>
 
-<!--hier für das Feedback falls falsch eingegeben -->
-        <?php if (isset($errorMessage)): ?>
-            <p style="color: red;"><?php echo $errorMessage; ?></p>
-        <?php endif; ?>
-
-        <!--damit die buttons später noch nebeneinander sind-->
-        <div class="button-container">
-            <a href='register.php' id="register">
-                <button type="button">Register</button>
-            </a>
-
-            <button type="submit" name="login" value="login">Login</button>
+                            <!--damit die buttons später noch nebeneinander sind-->
+                            <div class="d-flex justify-content-between">
+                                <a href='register.php' id="register" class="flex-grow-1 me-2">
+                                    <button type="button" class="btn btn-secondary w-100">Register</button>
+                                </a>
+                                <!-- Buttons müssen immer mit btn anfangen und dann mit btn-primary etc erweitert werden! -->
+                                <button type="submit" name="login" value="login" class="btn btn-primary flex-grow-1 w-100">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    </form> 
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

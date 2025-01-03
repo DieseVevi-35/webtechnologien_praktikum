@@ -1,1 +1,2 @@
-const serverUrl = `http://localhost/ //eigene Adresse eingeben`;
+const serverUrl = `http://localhost/8080/`;
+//Nick 8080
