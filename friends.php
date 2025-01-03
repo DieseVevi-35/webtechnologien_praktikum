@@ -34,38 +34,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>friends</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet' crossorigin='anonymous'>
 </head>
 
-<body class="centered-container">
-    <div class="content-container">
-        <h1>Friends</h1>
-        <a href='logout.php' id="critical-link">&lt Log out</a> |
-        <a href='settings.php'>Settings</a>
+<body class="container-fluid " style="background-color: #FF00FF;">
+    <div class="container mt-3">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title text-left">Friends</h1>
+                            <div class="btn-group">
+                                <a href='logout.php' id="critical-link" class="btn btn-danger">&lt Log out</a> 
+                                <a href='settings.php'class="btn btn-secondary">Settings</a>
+                            </div>
 
-        <hr>
+                            <hr>
 
-        <ul id="friend-list">
-        </ul>
+                            <ul id="friend-list">
+                            </ul>
 
-        <hr>
+                            <hr>
 
-        <h3>New Requests</h3>
-        <ol id="request-list">
-        </ol>
+                            <h3>New Requests</h3>
+                            <ol id="request-list">
+                            </ol>
 
-        <hr>
+                            <hr>
 
-        <form method="post" onsubmit="friends.php">
-            <input type='text' id='add-friend' placeholder='Add Friend to List' name='potential_friend_name' list="friend-selector">
+                            <form method="post" onsubmit="friends.php">
+                                <div class="input-group mb-3">
+                                <input type='text' id='add-friend' placeholder='Add Friend to List' name='potential_friend_name' list="friend-selector" class="form-control">
 
-            <datalist id="friend-selector">
-            </datalist>
-            <button>Add</button>
-        </form>
+                                <datalist id="friend-selector">
+                                </datalist>
+                                <button class="btn btn-primary">Add</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     const currentUser = "<?php echo $_SESSION['user']->getUsername() ?>";
 </script>
